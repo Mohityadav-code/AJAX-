@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<restaurants>
+  <restaurant name="Yellow Chilli" address="New Delhi" lat="47.608940" lng="-122.340141" type="sitdown"/>
+  <restaurant name="The Bar" address="Mumbai" lat="48.608940" lng="-123.340141" type="bar"/>
+  <restaurant name="Yellow Chilli" address="New Delhi" lat="47.608940" lng="-122.340141" type="sitdown"/>
+  <restaurant name="The Bar" address="Mumbai" lat="48.608940" lng="-123.340141" type="bar"/>
+  <restaurant name="Yellow Chilli" address="New Delhi" lat="47.608940" lng="-122.340141" type="sitdown"/>
+  <restaurant name="The Bar" address="Mumbai" lat="48.608940" lng="-123.340141" type="bar"/>
+  <restaurant name="Yellow Chilli" address="New Delhi" lat="47.608940" lng="-122.340141" type="sitdown"/>
+  <restaurant name="The Bar" address="Mumbai" lat="48.608940" lng="-123.340141" type="bar"/>
+  <restaurant name="Yellow Chilli" address="New Delhi" lat="47.608940" lng="-122.340141" type="sitdown"/>
+  <restaurant name="The Bar" address="Mumbai" lat="48.608940" lng="-123.340141" type="bar"/>
+  <restaurant name="Yellow Chilli" address="New Delhi" lat="47.608940" lng="-122.340141" type="sitdown"/>
+  <restaurant name="The Bar" address="Mumbai" lat="48.608940" lng="-123.340141" type="bar"/>
+</restaurants>
