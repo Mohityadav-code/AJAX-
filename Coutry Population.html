@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="append flex  items-center flex-col bg-gradient-to-tr from-teal-400 to-pink-400 h-screen">
+    <div class="title text-center text-[40px] font-serif mt-20 border-emerald-500 border-solid border-2 bg-red-200">
+        Enter country name get & it's Population</div>
+    <div class="flex  flex-col mt-20 items-center  ">
+
+        <div class="flex border-2 border-solid border-black">
+            <input type="text" class="w-[260px] text-[20px] font-serif m=0 pl-3 outline-none"
+                placeholder="Enter country name " name="country" id="country">
+            <button onclick="getpop()" id="clickbutton"
+                class="bg-red-400 m-0 border-none   w-8  flex justify-center items-center"> <svg
+                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                </svg>
+            </button>
+        </div>
+
+</body>
+<script>
+    document.addEventListener("keydown", function (event) {
+        if (event.keyCode === 13) {
+            document.getElementById("clickbutton").click();
+        }
+    });
+
+    function getpop() {
+        var countryName = document.querySelector("#country").value
+        var append = document.querySelector(".append")
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', `https://restcountries.com/v2/name/${countryName}?fullText=true`, true);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    const data = JSON.parse(xhr.responseText);
+                    countryName = countryName.toUpperCase()
+                    append.innerHTML += `   <div class=" flex  border-2 border-solid border-black w-fit flex-row flex-wrap mt-2 ">         
+                        <div class="result text-center text-[25px] font-serif    bg-stone-100 pr-3 pl-3 ">The population of <span style="color:red;"> ${countryName}</span> is  <span style="color :red;">"${(data[0].population)}" </span></div>
+                        <button onclick="closeit()" class="bg-yellow-400 m-0 border-none  w-10  flex justify-center items-center" ><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currenColor" class="bi bi-x-circle-fill " viewBox="0 0 16 16">
+                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
+                            </svg></button>
+                            </div> 
+        </div>`;
+                } else if (xhr.status === 404) {
+                    alert("Country not found")
+                }
+            }
+        };
+        xhr.send();
+    }
+    function closeit() {
+    var currentDiv = this.parentNode;
+    // not able to implement this , this was not asked but i was trying...   
+}
+
+
+</script>
+
+</html>
